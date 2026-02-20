@@ -30,7 +30,7 @@ import logo from '../assets/y999-logo.png';
       </a>
       
       <!-- Mobile Menu Button -->
-      <button class="lg:hidden text-white p-2" id="mobile-menu-toggle">
+      <button class="lg:hidden text-white p-2" id="mobile-menu-toggle" aria-label="Toggle mobile menu" aria-expanded="false" aria-controls="mobile-menu">
         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
         </svg>
@@ -56,7 +56,8 @@ import logo from '../assets/y999-logo.png';
 
   if (toggle && menu) {
     toggle.addEventListener('click', () => {
-      menu.classList.toggle('hidden');
+      const isOpen = menu.classList.toggle('hidden');
+      toggle.setAttribute('aria-expanded', String(!isOpen));
     });
   }
 </script>
