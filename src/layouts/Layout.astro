@@ -1,8 +1,13 @@
 ---
 import "../styles/global.css";
-import logo from '../assets/y999-logo.png';
+import { getImage } from 'astro:assets';
+import logoRaw from '../assets/y999-logo.png';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+
+// Pre-generate the optimised logo so we can preload its exact URL in <head>
+const logoOptimised = await getImage({ src: logoRaw, width: 70, format: 'webp', quality: 90 });
+const logo = logoOptimised;
 
 interface Props {
   title: string;
@@ -55,6 +60,9 @@ schemaArray.push({
     <meta name="description" content={description} />
     <meta name="author" content="y999 Game" />
     <link rel="canonical" href={canonical} />
+    <!-- LCP image preload: tells browser to start fetching the logo before it parses <header> -->
+    <link rel="preload" as="image" href={logo.src} fetchpriority="high" />
+
     <link rel="icon" type="image/webp" href={logo.src} />
     <link rel="apple-touch-icon" sizes="180x180" href={logo.src} />
     <meta name="generator" content={Astro.generator} />
@@ -91,8 +99,12 @@ schemaArray.push({
       html, body {
         margin: 0;
         width: 100%;
-        height: 100%;
+        min-height: 100%;
         font-family: system-ui, -apple-system, sans-serif;
+      }
+      /* Reserve space for the fixed header (h-20 = 80px) to prevent CLS */
+      body > header + * {
+        padding-top: 80px;
       }
     </style>
   </head>
