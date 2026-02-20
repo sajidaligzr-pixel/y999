@@ -1,0 +1,73 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Hero from '../components/Hero.astro';
+import Description from '../components/Description.astro';
+import OrganizationSchema from '../components/seo/OrganizationSchema.astro';
+import BreadcrumbSchema from '../components/seo/BreadcrumbSchema.astro';
+
+const BASE = "https://y999gameapp.com.pk";
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Is the y999 safe to use?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, y999 is a safe and secure platform. The app uses encryption technology to protect your data and ensure fair gaming with RNG certification."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How can I withdraw my earnings?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "y999 offers fast and secure withdrawal methods. Simply go to your account, choose your preferred payment method, and request a withdrawal."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I play on the y999 Game APK from my mobile device?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, the y999 App is fully optimized for mobile devices, so you can play and earn on the go."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What games are available on the y999 App?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "y999 offers a variety of games, including cricket and football betting, casino games, slot machines, and card games."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Are there any bonuses or promotions?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes, y999 Game offers exciting bonuses and promotions, including welcome bonuses and daily rewards for active players."
+      }
+    }
+  ]
+};
+---
+
+<Layout 
+  title="y999 Game - Official Download | Play and Earn Real Cash" 
+  description="Download the official y999 Game App for Android. Experience the best casino games, sports betting, and slot machines in Pakistan. Safe, secure, and fast withdrawals."
+  includeWebsiteSchema={true}
+>
+  <Fragment slot="schema">
+    <OrganizationSchema />
+    <BreadcrumbSchema items={[
+      { name: "Home", url: `${BASE}/` },
+    ]} />
+    <script type="application/ld+json" is:inline set:html={JSON.stringify(faqSchema)} />
+  </Fragment>
+
+  <Hero />
+  <Description />
+</Layout>

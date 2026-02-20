@@ -1,0 +1,256 @@
+---
+import Layout from '../layouts/Layout.astro';
+import BreadcrumbSchema from '../components/seo/BreadcrumbSchema.astro';
+
+// Dynamically import all game images
+const gameImages = import.meta.glob('../assets/games/*.{webp,png,jpg,jpeg}', { eager: true });
+
+const hotGames = ['AK47', 'Andar-Bahar', 'Blackjack', 'Rummy', 'TeenPatti'];
+
+const games = Object.keys(gameImages).map((path) => {
+  const fileName = path.split('/').pop().split('.')[0];
+  let title = fileName.replace(/-/g, ' ');
+  const imgSrc = gameImages[path].default.src;
+  
+  // Try to assign a logical category
+  let category = 'Other';
+  const lowerTitle = title.toLowerCase();
+  
+  if (lowerTitle.includes('fishing') || lowerTitle.includes('ocean')) category = 'Fishing';
+  else if (lowerTitle.includes('poker') || lowerTitle.includes('blackjack') || lowerTitle.includes('rummy') || lowerTitle.includes('teen') || lowerTitle.includes('callbreak') || lowerTitle.includes('flush') || lowerTitle.includes('holdem') || lowerTitle.includes('andar')) category = 'Card Games';
+  else if (lowerTitle.includes('tycoon') || lowerTitle.includes('jackpot') || lowerTitle.includes('fortune') || lowerTitle.includes('coming') || lowerTitle.includes('legend') || lowerTitle.includes('bomb')) category = 'Slots';
+  
+  return {
+    id: fileName,
+    title,
+    imgSrc,
+    provider: 'JILI',
+    category,
+    isHot: hotGames.includes(fileName)
+  };
+});
+
+const BASE = "https://y999gameapp.com.pk";
+---
+
+<Layout 
+  title="Discover Amazing Games - Y999 | 500+ Casino, Card & Slot Games" 
+  description="Explore 500+ premium casino games on Y999. Play top slots, card games (Teen Patti, Rummy, Blackjack), fishing games, and live casino from JILI, PG Soft, and more. Free to download."
+>
+  <Fragment slot="schema">
+    <BreadcrumbSchema items={[
+      { name: "Home", url: `${BASE}/` },
+      { name: "Games", url: `${BASE}/games` },
+    ]} />
+  </Fragment>
+
+  <div class="min-h-screen bg-[#101115] pt-32 pb-20 relative overflow-hidden">
+    <!-- Header -->
+    <div class="container mx-auto px-5 max-w-7xl relative z-10 text-center mb-12">
+      <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-green-500 mb-4 tracking-tight">
+        Discover Amazing Games
+      </h1>
+      <p class="text-white/60 text-lg">
+        Explore 500+ premium games from top providers
+      </p>
+    </div>
+
+    <div class="container mx-auto px-5 max-w-7xl relative z-10">
+      <!-- Controls Top -->
+      <div class="flex flex-col md:flex-row gap-4 justify-between items-center mb-10">
+        <!-- Search -->
+        <div class="relative w-full md:w-80">
+          <div class="absolute inset-y-0 left-4 flex items-center pointer-events-none">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-white/40">
+              <circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/>
+            </svg>
+          </div>
+          <input 
+            type="text" 
+            id="searchInput"
+            placeholder="Search games..." 
+            class="w-full bg-[#1b1c24] border border-white/5 rounded-full py-3 pl-10 pr-4 text-white placeholder:text-white/40 focus:outline-none focus:border-green-500/50 focus:bg-white/10 transition-all"
+          >
+        </div>
+
+        <!-- Filter Pills -->
+        <div class="flex flex-wrap gap-2 justify-center" id="categoryFilters">
+          <button class="filter-btn active px-6 py-2.5 rounded-full bg-green-500 text-black font-semibold text-sm transition-all hover:bg-green-400" data-category="All Games">All Games</button>
+          <button class="filter-btn px-6 py-2 rounded-full bg-[#1b1c24] text-white/70 border border-white/5 font-semibold text-sm transition-all hover:bg-white/10 hover:text-white" data-category="Slots">Slots</button>
+          <button class="filter-btn px-6 py-2 rounded-full bg-[#1b1c24] text-white/70 border border-white/5 font-semibold text-sm transition-all hover:bg-white/10 hover:text-white" data-category="Card Games">Card Games</button>
+          <button class="filter-btn px-6 py-2 rounded-full bg-[#1b1c24] text-white/70 border border-white/5 font-semibold text-sm transition-all hover:bg-white/10 hover:text-white" data-category="Fishing">Fishing</button>
+          <button class="filter-btn px-6 py-2 rounded-full bg-[#1b1c24] text-white/70 border border-white/5 font-semibold text-sm transition-all hover:bg-white/10 hover:text-white" data-category="Live Casino">Live Casino</button>
+          <button class="filter-btn px-6 py-2 rounded-full bg-[#1b1c24] text-white/70 border border-white/5 font-semibold text-sm transition-all hover:bg-white/10 hover:text-white" data-category="Sports">Sports</button>
+          <button class="filter-btn px-6 py-2 rounded-full bg-[#1b1c24] text-white/70 border border-white/5 font-semibold text-sm transition-all hover:bg-white/10 hover:text-white" data-category="Other">Other</button>
+        </div>
+      </div>
+
+      <!-- Counter -->
+      <div class="text-center mb-8">
+        <p class="text-white/50 text-sm">Showing <span id="gameCount" class="text-green-500 font-bold">{games.length}</span> games</p>
+      </div>
+
+      <!-- Games Grid -->
+      <div id="gamesGrid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 mb-12 min-h-[400px]">
+        <!-- Games will be injected here via JS -->
+      </div>
+
+      <!-- Pagination Default Design from Image -->
+      <div class="flex flex-wrap justify-center items-center gap-2 mt-12" id="paginationContainer">
+        <!-- Pagination injected here via JS -->
+      </div>
+    </div>
+    
+     <!-- Decorative particles -->
+     <div class="absolute inset-0 pointer-events-none z-0" aria-hidden="true" style="background: radial-gradient(circle at top right, rgba(34,197,94,0.05), transparent 40%), radial-gradient(circle at bottom left, rgba(34,197,94,0.05), transparent 40%);"></div>
+  </div>
+
+  <script is:inline define:vars={{ games }}>
+    document.addEventListener("DOMContentLoaded", () => {
+      // DOM Elements
+      const gamesGrid = document.getElementById("gamesGrid");
+      const searchInput = document.getElementById("searchInput");
+      const filterBtns = document.querySelectorAll(".filter-btn");
+      const gameCount = document.getElementById("gameCount");
+      const paginationContainer = document.getElementById("paginationContainer");
+
+      // State
+      let state = {
+        query: "",
+        category: "All Games",
+        page: 1,
+        itemsPerPage: 18,
+        filteredGames: [...games]
+      };
+
+      // Filter and render
+      function renderGames() {
+        // 1. Filter
+        state.filteredGames = games.filter(game => {
+          const matchQuery = game.title.toLowerCase().includes(state.query.toLowerCase());
+          const matchCategory = state.category === "All Games" || game.category === state.category;
+          return matchQuery && matchCategory;
+        });
+
+        // Update Count
+        gameCount.innerText = state.filteredGames.length;
+
+        // 2. Paginate
+        const totalPages = Math.ceil(state.filteredGames.length / state.itemsPerPage);
+        
+        // Ensure current page is valid after filtering
+        if(state.page > totalPages) state.page = totalPages > 0 ? totalPages : 1;
+        
+        const startIndex = (state.page - 1) * state.itemsPerPage;
+        const endIndex = startIndex + state.itemsPerPage;
+        const pageGames = state.filteredGames.slice(startIndex, startIndex + state.itemsPerPage);
+
+        // 3. Render HTML
+        if (pageGames.length === 0) {
+          gamesGrid.innerHTML = `
+            <div class="col-span-full py-20 flex flex-col items-center justify-center text-white/40">
+              <p>No games found matching your criteria</p>
+            </div>
+          `;
+        } else {
+          gamesGrid.innerHTML = pageGames.map(game => `
+            <a href="/play/${game.id}" class="group block relative rounded-xl overflow-hidden shadow-lg transition-transform hover:-translate-y-1">
+              ${game.isHot ? '<div class="absolute top-2 left-2 z-20 bg-gradient-to-r from-[#FF6B00] to-[#FF2D00] text-white text-[10px] font-bold px-2 py-0.5 rounded-full flex items-center gap-1 shadow"><svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12 2c0 0-3.5 4-3.5 8 0 4.5 7 5 7 2 0-3 0-5-3.5-10z"/></svg>HOT</div>' : ''}
+              
+              <div class="aspect-[4/5] relative overflow-hidden">
+                <img src="${game.imgSrc}" alt="${game.title}" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" loading="lazy" />
+                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent"></div>
+                
+                <div class="absolute bottom-0 left-0 right-0 p-4 pb-3 flex flex-col items-center justify-end text-center">
+                  <h3 class="text-white font-bold text-lg md:text-xl leading-tight mb-1 truncate w-full" style="text-shadow: 0px 2px 4px rgba(0,0,0,0.5);">${game.title}</h3>
+                  <div class="flex items-center gap-1 opacity-90">
+                    <span class="text-white text-[10px] font-black tracking-widest uppercase flex items-center justify-center gap-1 opacity-80">
+                      <span class="font-bold italic">JILI</span> ${game.provider}
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </a>
+          `).join('');
+        }
+
+        // 4. Render Pagination
+        renderPagination(totalPages);
+      }
+
+      function renderPagination(totalPages) {
+        if (totalPages <= 1) {
+          paginationContainer.innerHTML = "";
+          return;
+        }
+
+        let html = '';
+        
+        // Prev button
+        html += `<button class="paginate-btn px-4 py-2 rounded-lg ${state.page === 1 ? 'bg-[#1b1c24] text-white/30 cursor-not-allowed' : 'bg-[#1b1c24] text-white/70 hover:bg-[#252733] hover:text-white border border-white/5 transition-all font-medium text-sm'}" data-page="${state.page - 1}" ${state.page === 1 ? 'disabled' : ''}>← Prev</button>`;
+
+        // Page numbers
+        for(let i = 1; i <= totalPages; i++) {
+          if (
+            i === 1 || 
+            i === totalPages || 
+            (i >= state.page - 1 && i <= state.page + 1)
+          ) {
+            html += `<button class="paginate-btn w-10 h-10 rounded-lg flex items-center justify-center transition-all font-medium text-sm ${i === state.page ? 'bg-green-500 text-black border-transparent' : 'bg-[#1b1c24] border border-white/5 text-white/70 hover:bg-[#252733] hover:text-white'}" data-page="${i}">${i}</button>`;
+          } else if (
+            i === state.page - 2 || 
+            i === state.page + 2
+          ) {
+            html += `<span class="w-10 h-10 flex items-center justify-center text-white/50 text-sm">...</span>`;
+          }
+        }
+
+        // Next button
+        html += `<button class="paginate-btn px-4 py-2 rounded-lg ${state.page === totalPages ? 'bg-[#1b1c24] text-white/30 cursor-not-allowed' : 'bg-[#1b1c24] text-white/70 hover:bg-[#252733] hover:text-white border border-white/5 transition-all font-medium text-sm'}" data-page="${state.page + 1}" ${state.page === totalPages ? 'disabled' : ''}>Next →</button>`;
+
+        paginationContainer.innerHTML = html;
+
+        // Add event listeners to new pagination buttons
+        document.querySelectorAll(".paginate-btn").forEach(btn => {
+          btn.addEventListener("click", (e) => {
+            const newPage = parseInt(e.currentTarget.getAttribute("data-page"));
+            if (newPage && newPage !== state.page && newPage > 0 && newPage <= totalPages) {
+              state.page = newPage;
+              renderGames();
+              // Scroll up slightly
+              document.querySelector(".max-w-7xl").scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+          });
+        });
+      }
+
+      // Event Listeners
+      searchInput.addEventListener("input", (e) => {
+        state.query = e.target.value;
+        state.page = 1; // Reset page on search
+        renderGames();
+      });
+
+      filterBtns.forEach(btn => {
+        btn.addEventListener("click", (e) => {
+          // Update UI
+          filterBtns.forEach(b => {
+            b.classList.remove("bg-green-500", "text-black");
+            b.classList.add("bg-white/5", "text-white/70");
+          });
+          
+          e.currentTarget.classList.remove("bg-white/5", "text-white/70");
+          e.currentTarget.classList.add("bg-green-500", "text-black");
+
+          // Update State
+          state.category = e.currentTarget.getAttribute("data-category");
+          state.page = 1; // Reset page on filter
+          renderGames();
+        });
+      });
+
+      // Initial Render
+      renderGames();
+    });
+  </script>
+</Layout>

@@ -1,0 +1,268 @@
+---
+import Layout from '../layouts/Layout.astro';
+import DownloadHeroImage from '../assets/categories/Super-Ace.webp'; // Placeholder for hero image
+import BreadcrumbSchema from '../components/seo/BreadcrumbSchema.astro';
+import SoftwareAppSchema from '../components/seo/SoftwareAppSchema.astro';
+import HowToSchema from '../components/seo/HowToSchema.astro';
+
+const BASE = "https://y999gameapp.com.pk";
+---
+
+<Layout 
+  title="Download Y999 Game APK - Official Source" 
+  description="Download the safest Y999 Game APK block for Android. Follow our guide to easily install and register for Y999."
+>
+  <Fragment slot="schema">
+    <BreadcrumbSchema items={[
+      { name: "Home", url: `${BASE}/` },
+      { name: "Download", url: `${BASE}/download` },
+    ]} />
+    <SoftwareAppSchema />
+    <HowToSchema />
+  </Fragment>
+
+  <div class="min-h-screen bg-[#101115] pt-24 pb-20 relative overflow-hidden">
+    
+    <!-- Hero Section -->
+    <section class="relative pt-20 pb-16 px-5 z-10">
+      <div class="container mx-auto max-w-7xl">
+        <div class="grid lg:grid-cols-2 gap-12 items-center">
+          
+          <!-- Hero Text -->
+          <div class="space-y-8">
+            <div>
+              <span class="inline-block px-4 py-1.5 bg-green-500/10 border border-green-500/30 rounded-full text-green-500 text-xs font-bold tracking-widest uppercase mb-6">
+                Official Download
+              </span>
+              <h1 class="text-5xl md:text-6xl font-black text-white leading-tight mb-6">
+                Get <span class="text-green-500">Y999 Game</span> Now
+              </h1>
+              <p class="text-lg text-white/70 leading-relaxed max-w-xl">
+                Experience the ultimate casino gaming platform direct on your mobile device. Y999 provides safe, fast, and feature-rich entertainment with 2000+ games.
+              </p>
+            </div>
+
+            <!-- Game Details Table -->
+            <div class="bg-[#1b1c24] border border-white/5 rounded-2xl overflow-hidden max-w-md shadow-2xl">
+              <div class="bg-green-500/10 px-6 py-4 border-b border-white/5">
+                <h3 class="text-green-500 font-bold tracking-wide uppercase text-sm">App Details</h3>
+              </div>
+              <div class="divide-y divide-white/5">
+                <div class="flex items-center justify-between px-6 py-4">
+                  <span class="text-white/50 text-sm font-medium">App Name</span>
+                  <span class="text-white font-bold text-sm">Y999 Game</span>
+                </div>
+                <div class="flex items-center justify-between px-6 py-4 bg-white/[0.02]">
+                  <span class="text-white/50 text-sm font-medium">Version</span>
+                  <span class="text-white font-bold text-sm">v4.2.1 (Latest)</span>
+                </div>
+                <div class="flex items-center justify-between px-6 py-4">
+                  <span class="text-white/50 text-sm font-medium">File Size</span>
+                  <span class="text-white font-bold text-sm">~45 MB</span>
+                </div>
+                <div class="flex items-center justify-between px-6 py-4 bg-white/[0.02]">
+                  <span class="text-white/50 text-sm font-medium">Operating System</span>
+                  <span class="text-white font-bold text-sm text-right">Android 5.0+</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Download Button -->
+            <a href="#" class="inline-flex items-center gap-3 bg-green-500 text-black px-8 py-4 rounded-xl font-bold text-lg tracking-wide uppercase hover:bg-green-400 transition-all shadow-[0_0_30px_rgba(34,197,94,0.3)] hover:shadow-[0_0_40px_rgba(34,197,94,0.5)] transform hover:-translate-y-1">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                <polyline points="7 10 12 15 17 10"/>
+                <line x1="12" y1="15" x2="12" y2="3"/>
+              </svg>
+              Download APK
+            </a>
+            <p class="text-white/40 text-xs italic">*100% Virus-free and safe to install</p>
+          </div>
+
+          <!-- Hero Image -->
+          <div class="relative hidden lg:block perspective-1000">
+             <div class="absolute inset-0 bg-green-500/20 blur-[100px] rounded-full"></div>
+             <!-- A decorative mockup container -->
+             <div class="relative mx-auto w-full max-w-sm rounded-[2rem] border-8 border-[#1b1c24] bg-black shadow-2xl transform rotate-y-12 rotate-x-6 hover:rotate-y-0 hover:rotate-x-0 transition-transform duration-700 overflow-hidden">
+               <div class="absolute top-0 inset-x-0 h-6 bg-[#1b1c24] z-20 flex justify-center items-center">
+                 <div class="w-1/3 h-3 bg-black rounded-b-xl"></div>
+               </div>
+               <img src={DownloadHeroImage.src} alt="Y999 Game Preview" class="w-full h-auto object-cover opacity-90" />
+               <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent"></div>
+             </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Download Guide Content Section -->
+    <section class="relative py-16 px-5 z-10 border-t border-white/5 bg-[#1b1c24]/30">
+      <div class="container mx-auto max-w-4xl">
+        
+        <div class="mb-12 md:text-center">
+           <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">
+            How to Download <span class="text-green-500">Y999 Game</span> APK Guide:
+          </h2>
+          <p class="text-white/70 leading-relaxed text-lg">
+            Downloading something from the internet can be a challenging task. With malware and fake money apps filling the market, everyone is scared to download apk files. On this website, we will provide you a safe Y999 game apk and also the Y999 game apk Download Guide below:
+          </p>
+        </div>
+
+        <!-- Download Guide Steps -->
+        <div class="mb-20">
+          <h3 class="text-2xl font-bold text-white mb-8 flex items-center gap-3">
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-green-500"><path d="M12 2v20"/><path d="m17 19-5 3-5-3"/><path d="M19 9a7 7 0 0 0-14 0"/></svg>
+            Download Guide
+          </h3>
+          
+          <div class="space-y-4">
+            <div class="flex gap-4 p-5 rounded-xl bg-[#1b1c24] border border-white/5 hover:border-green-500/30 transition-colors">
+              <div class="w-8 h-8 rounded-full bg-green-500 text-black font-bold flex items-center justify-center shrink-0">1</div>
+              <p class="text-white/80 leading-relaxed mt-1">First head to our official website.</p>
+            </div>
+            
+            <div class="flex gap-4 p-5 rounded-xl bg-[#1b1c24] border border-white/5 hover:border-green-500/30 transition-colors">
+              <div class="w-8 h-8 rounded-full bg-green-500 text-black font-bold flex items-center justify-center shrink-0">2</div>
+              <p class="text-white/80 leading-relaxed mt-1">Here click on the download button and read all of the features.</p>
+            </div>
+            
+            <div class="flex gap-4 p-5 rounded-xl bg-[#1b1c24] border border-white/5 hover:border-green-500/30 transition-colors">
+              <div class="w-8 h-8 rounded-full bg-green-500 text-black font-bold flex items-center justify-center shrink-0">3</div>
+              <p class="text-white/80 leading-relaxed mt-1">Once your file is downloaded, next you need to enable <strong class="text-green-500 font-medium">"install from unknown sources"</strong>.</p>
+            </div>
+            
+            <div class="flex gap-4 p-5 rounded-xl bg-[#1b1c24] border border-white/5 hover:border-green-500/30 transition-colors">
+              <div class="w-8 h-8 rounded-full bg-green-500 text-black font-bold flex items-center justify-center shrink-0">4</div>
+              <p class="text-white/80 leading-relaxed mt-1">Head to your file manager and find the apk in your downloads folder.</p>
+            </div>
+            
+            <div class="flex gap-4 p-5 rounded-xl bg-[#1b1c24] border border-white/5 hover:border-green-500/30 transition-colors">
+              <div class="w-8 h-8 rounded-full bg-green-500 text-black font-bold flex items-center justify-center shrink-0">5</div>
+              <p class="text-white/80 leading-relaxed mt-1">Now install the Download Rumi Y999 game APK latest version on your device.</p>
+            </div>
+            
+            <div class="flex gap-4 p-5 rounded-xl bg-[#1b1c24] border border-white/5 hover:border-green-500/30 transition-colors">
+              <div class="w-8 h-8 rounded-full bg-green-500/20 text-green-500 border border-green-500/30 font-bold flex items-center justify-center shrink-0">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              </div>
+              <p class="text-white/80 leading-relaxed mt-1">Once installed, now you can proceed to register.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Registration & Login Section -->
+        <div>
+           <div class="mb-12 md:text-center">
+            <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">
+              Registration and Login Procedure of <span class="text-green-500">Y999 Game</span>:
+            </h2>
+            <p class="text-white/70 leading-relaxed text-lg">
+              You may be worried that you will have to fill up a long registration form to enter the Y999 game club. That's not the case, with this platform making an account and registration has become a lot easier. Follow the guides below to start your journey.
+            </p>
+          </div>
+
+          <div class="grid md:grid-cols-2 gap-10">
+            <!-- Registration Guide -->
+            <div class="bg-[#1b1c24] border border-white/5 rounded-2xl p-8 shadow-xl">
+              <h3 class="text-2xl font-bold text-green-500 mb-6 flex items-center gap-2">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><line x1="19" y1="8" x2="19" y2="14"/><line x1="22" y1="11" x2="16" y2="11"/></svg>
+                Registration Guide
+              </h3>
+              
+              <ul class="space-y-6 relative border-l border-white/10 ml-3 pl-6">
+                <li class="relative">
+                  <span class="absolute -left-[31px] top-1 w-3 h-3 rounded-full bg-green-500 shadow-[0_0_10px_rgba(34,197,94,0.5)]"></span>
+                  <strong class="text-white block text-lg mb-1">Open the app:</strong>
+                  <span class="text-white/60 text-sm">After installing the app, click on the app from home screen.</span>
+                </li>
+                <li class="relative">
+                  <span class="absolute -left-[31px] top-1 w-3 h-3 rounded-full bg-green-500 shadow-[0_0_10px_rgba(34,197,94,0.5)]"></span>
+                  <strong class="text-white block text-lg mb-1">Tap on Register:</strong>
+                  <span class="text-white/60 text-sm">Next find and tap on the register button which you can find inside the login box.</span>
+                </li>
+                <li class="relative">
+                  <span class="absolute -left-[31px] top-1 w-3 h-3 rounded-full bg-green-500 shadow-[0_0_10px_rgba(34,197,94,0.5)]"></span>
+                  <strong class="text-white block text-lg mb-1">Register panel:</strong>
+                  <span class="text-white/60 text-sm block mb-2">Here, you will have to fill up the following information:</span>
+                  <ul class="list-disc list-inside text-white/50 text-sm ml-2 space-y-1">
+                    <li>An active Phone Number</li>
+                    <li>Captcha</li>
+                    <li>Password</li>
+                  </ul>
+                </li>
+                <li class="relative">
+                  <span class="absolute -left-[31px] top-1 w-3 h-3 rounded-full bg-green-500 shadow-[0_0_10px_rgba(34,197,94,0.5)]"></span>
+                  <strong class="text-white block text-lg mb-1">Confirm details:</strong>
+                  <span class="text-white/60 text-sm">Double check your information and press register to create your account.</span>
+                </li>
+              </ul>
+
+              <div class="mt-8 bg-green-500/10 border border-green-500/20 rounded-lg p-4">
+                <p class="text-white/70 text-xs leading-relaxed">
+                  <strong class="text-green-500">Note:</strong> make sure to provide an active phone number and choose a strong password with uppercase, lowercase and numbers to increase your account security.
+                </p>
+              </div>
+            </div>
+
+            <!-- Log in Guide -->
+            <div class="bg-[#1b1c24] border border-white/5 rounded-2xl p-8 shadow-xl">
+              <h3 class="text-2xl font-bold text-green-500 mb-6 flex items-center gap-2">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"/><polyline points="10 17 15 12 10 7"/><line x1="15" y1="12" x2="3" y2="12"/></svg>
+                Log in Guide
+              </h3>
+              
+              <ul class="space-y-6 relative border-l border-white/10 ml-3 pl-6">
+                <li class="relative">
+                  <span class="absolute -left-[31px] top-1 w-3 h-3 rounded-full bg-green-500 shadow-[0_0_10px_rgba(34,197,94,0.5)]"></span>
+                  <strong class="text-white block text-lg mb-1">Open the app:</strong>
+                  <span class="text-white/60 text-sm">Click on the rumislots app.</span>
+                </li>
+                <li class="relative">
+                  <span class="absolute -left-[31px] top-1 w-3 h-3 rounded-full bg-green-500 shadow-[0_0_10px_rgba(34,197,94,0.5)]"></span>
+                  <strong class="text-white block text-lg mb-1">Enter details:</strong>
+                  <span class="text-white/60 text-sm">Type your phone number and Password.</span>
+                </li>
+                <li class="relative">
+                  <span class="absolute -left-[31px] top-1 w-3 h-3 rounded-full bg-green-500 shadow-[0_0_10px_rgba(34,197,94,0.5)]"></span>
+                  <strong class="text-white block text-lg mb-1">Press Login:</strong>
+                  <span class="text-white/60 text-sm">Tap log in and that's it! You have completed Y999 game online login.</span>
+                </li>
+                <li class="relative">
+                  <span class="absolute -left-[31px] top-1 w-3 h-3 rounded-full bg-green-500 shadow-[0_0_10px_rgba(34,197,94,0.5)]"></span>
+                  <strong class="text-white block text-lg mb-1">Explore:</strong>
+                  <span class="text-white/60 text-sm">Once logged in now you can crawl around the rumi slot net like a spider.</span>
+                </li>
+              </ul>
+
+              <div class="mt-8 bg-red-500/10 border border-red-500/20 rounded-lg p-4">
+                <p class="text-white/70 text-xs leading-relaxed">
+                  <strong class="text-red-500">Note:</strong> Never share your phone number and password with anyone.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Decorative particles -->
+    <div class="absolute inset-0 pointer-events-none z-0" aria-hidden="true" style="background: radial-gradient(circle at top right, rgba(34,197,94,0.03), transparent 50%), radial-gradient(circle at bottom left, rgba(34,197,94,0.03), transparent 50%);"></div>
+  </div>
+</Layout>
+
+<style>
+  /* Optional 3D perspective utility if you add the tailwind plugin, otherwise handled custom */
+  .perspective-1000 {
+    perspective: 1000px;
+  }
+  .rotate-y-12 {
+    transform: rotateY(-12deg);
+  }
+  .rotate-x-6 {
+    transform: rotateX(6deg) rotateY(-12deg);
+  }
+  .hover\:rotate-y-0:hover {
+    transform: rotateY(0deg) rotateX(0deg);
+  }
+</style>

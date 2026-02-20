@@ -1,0 +1,91 @@
+---
+import Layout from '../layouts/Layout.astro';
+import BreadcrumbSchema from '../components/seo/BreadcrumbSchema.astro';
+
+const BASE = "https://y999gameapp.com.pk";
+---
+
+<Layout 
+  title="Terms & Conditions - Y999 Game" 
+  description="Terms and Conditions of use for the Y999 Game platform."
+>
+  <Fragment slot="schema">
+    <BreadcrumbSchema items={[
+      { name: "Home", url: `${BASE}/` },
+      { name: "Terms & Conditions", url: `${BASE}/terms-conditions` },
+    ]} />
+  </Fragment>
+
+  <div class="min-h-screen bg-[#101115] pt-32 pb-20 relative overflow-hidden">
+    <!-- Decorative particles -->
+    <div class="absolute inset-0 pointer-events-none z-0" aria-hidden="true" style="background: radial-gradient(circle at top left, rgba(34,197,94,0.05), transparent 40%);"></div>
+
+    <div class="container mx-auto px-5 max-w-4xl relative z-10 text-white/80">
+      <div class="mb-12">
+        <h1 class="text-4xl md:text-5xl font-black text-white mb-4">Terms & <span class="text-green-500">Conditions</span></h1>
+        <p class="text-white/50">Last updated: January 2026</p>
+      </div>
+
+      <div class="space-y-8 bg-[#1b1c24] border border-white/5 p-8 md:p-12 rounded-2xl shadow-xl prose prose-invert prose-green max-w-none">
+        
+        <section>
+          <h2 class="text-2xl font-bold text-white mb-4">1. Agreement to Terms</h2>
+          <p class="leading-relaxed mb-4">
+            By accessing or using the Y999 Game application, you agree to be bound by these Terms and Conditions and our Privacy Policy. If you do not agree to these terms, please do not use our services.
+          </p>
+          <p class="leading-relaxed mb-4">
+            You must be of legal gambling age in your jurisdiction (at least 18 years old) to use our real money gaming features. It is your sole responsibility to ensure that online gaming is legal in your state/country of residence.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="text-2xl font-bold text-white mb-4">2. User Registration and Accounts</h2>
+          <p class="leading-relaxed mb-4">
+            To use certain features of the app, you must register for an account. By registering, you agree to:
+          </p>
+          <ul class="list-disc pl-5 space-y-2 mb-4">
+            <li>Provide accurate, current, and complete information as prompted by the registration form.</li>
+            <li>Maintain the security of your password and identification.</li>
+            <li>Accept all risks of unauthorized access to your account and the information you provide.</li>
+            <li>Maintain one single account per user. Creating multiple accounts may result in suspension.</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2 class="text-2xl font-bold text-white mb-4">3. Deposits and Withdrawals</h2>
+          <p class="leading-relaxed mb-4">
+            Y999 Game allows you to deposit real money to participate in games. All financial transactions are subject to our payment processing terms.
+          </p>
+          <ul class="list-disc pl-5 space-y-2 mb-4">
+            <li>You may only use payment methods registered under your own name.</li>
+            <li>Minimum deposit and withdrawal limits apply as stated in the platform.</li>
+            <li>Withdrawal requests are subject to verification controls to prevent fraud and money laundering.</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2 class="text-2xl font-bold text-white mb-4">4. Fair Play and Prohibited Activities</h2>
+          <p class="leading-relaxed mb-4">
+            You agree not to engage in any activity that interferes with or disrupts the application. Prohibited activities include:
+          </p>
+          <ul class="list-disc pl-5 space-y-2 mb-4">
+            <li>Using cheats, exploits, automation software, bots, hacks, or mods.</li>
+            <li>Abusing promotional offers or engaging in bonus arbitrage.</li>
+            <li>Attempting to manipulate the RNG (Random Number Generator) or game outcomes.</li>
+            <li>Harassing other players or using offensive language in chat features.</li>
+          </ul>
+          <p class="leading-relaxed mb-4 text-green-500 font-bold">
+            Violation of these rules will result in immediate account termination and forfeiture of funds.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="text-2xl font-bold text-white mb-4">5. Modifications to Terms</h2>
+          <p class="leading-relaxed mb-4">
+            We reserve the right to modify these terms at any time. We will notify users of significant changes, but it is your responsibility to review the terms periodically. Your continued use of the application following the posting of changes will mean that you accept and agree to the changes.
+          </p>
+        </section>
+      </div>
+    </div>
+  </div>
+</Layout>

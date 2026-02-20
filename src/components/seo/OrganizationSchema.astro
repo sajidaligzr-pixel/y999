@@ -1,0 +1,35 @@
+---
+/**
+ * OrganizationSchema.astro
+ * Outputs Organization JSON-LD structured data.
+ * Include this once — on the homepage — via the Layout's `schema` slot.
+ */
+
+import logo from '../../assets/y999-logo.png';
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "y999 Game",
+  "url": "https://y999gameapp.com.pk",
+  "logo": {
+    "@type": "ImageObject",
+    "url": new URL(logo.src, "https://y999gameapp.com.pk").href,
+    "width": 200,
+    "height": 200,
+  },
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "email": "support@y999game.com",
+    "contactType": "customer support",
+    "availableLanguage": ["English", "Urdu"],
+  },
+  "sameAs": [
+    "https://www.facebook.com/y999game",
+    "https://www.instagram.com/y999game",
+    "https://twitter.com/y999game",
+  ],
+};
+---
+
+<script type="application/ld+json" is:inline set:html={JSON.stringify(schema)} />

@@ -1,0 +1,116 @@
+---
+import "../styles/global.css";
+import logo from '../assets/y999-logo.png';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+interface Props {
+  title: string;
+  description: string;
+  includeWebsiteSchema?: boolean;
+}
+
+const { title, description, includeWebsiteSchema = false } = Astro.props;
+const canonical = new URL(Astro.url.pathname, "https://y999gameapp.com.pk").href;
+
+// Build schema array dynamically
+const schemaArray = [];
+
+// Add WebSite schema only on homepage
+if (includeWebsiteSchema) {
+  schemaArray.push({
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "y999 Game",
+    "url": "https://y999gameapp.com.pk",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://y999gameapp.com.pk/?s={search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
+  });
+}
+
+// Add WebPage schema for every page
+schemaArray.push({
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": title,
+  "description": description,
+  "url": canonical,
+  "inLanguage": "en",
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "y999 Game",
+    "url": "https://y999gameapp.com.pk",
+  },
+});
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <meta name="author" content="y999 Game" />
+    <link rel="canonical" href={canonical} />
+    <link rel="icon" type="image/webp" href={logo.src} />
+    <link rel="apple-touch-icon" sizes="180x180" href={logo.src} />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#1a252f" />
+
+    <!-- Performance: Preconnect to Google Fonts if used -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={new URL(logo.src, "https://y999gameapp.com.pk").href} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:site_name" content="y999 Game" />
+    <meta property="og:locale" content="en_US" />
+
+    <!-- Twitter Card Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@y999game" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={new URL(logo.src, "https://y999gameapp.com.pk").href} />
+
+    <title>{title}</title>
+
+    <!-- Global Schema Markup (WebSite + WebPage) -->
+    <script type="application/ld+json" is:inline set:html={JSON.stringify(schemaArray)} />
+
+    <!-- Slot for page-specific schemas (breadcrumbs, FAQPage, Organization, SoftwareApp, etc.) -->
+    <slot name="schema" />
+
+    <style>
+      html, body {
+        margin: 0;
+        width: 100%;
+        height: 100%;
+        font-family: system-ui, -apple-system, sans-serif;
+      }
+    </style>
+  </head>
+
+  <body>
+    <Header />
+    <slot />
+    <Footer />
+
+    <script>
+      document.addEventListener('contextmenu', (e) => {
+        e.preventDefault();
+      }, { passive: false });
+    </script>
+  </body>
+</html>
+

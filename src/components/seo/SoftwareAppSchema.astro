@@ -1,0 +1,39 @@
+---
+/**
+ * SoftwareAppSchema.astro
+ * Outputs SoftwareApplication JSON-LD for the download page.
+ * This unlocks rich results (star rating, price, OS info) in Google search.
+ */
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Y999 Game",
+  "operatingSystem": "Android 5.0+",
+  "applicationCategory": "GameApplication",
+  "description": "Y999 Game is a premium casino and sports betting app for Android with 2000+ games including slots, card games, fishing games, and live casino.",
+  "url": "https://y999gameapp.com.pk/download",
+  "downloadUrl": "https://y999gameapp.com.pk/download",
+  "softwareVersion": "4.2.1",
+  "fileSize": "45 MB",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "PKR",
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.5",
+    "ratingCount": "12400",
+    "bestRating": "5",
+    "worstRating": "1",
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "y999 Game",
+    "url": "https://y999gameapp.com.pk",
+  },
+};
+---
+
+<script type="application/ld+json" is:inline set:html={JSON.stringify(schema)} />

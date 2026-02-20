@@ -1,0 +1,61 @@
+---
+import logo from '../assets/y999-logo.png';
+---
+
+<header class="fixed top-0 left-0 w-full z-50 bg-black backdrop-blur-md border-b border-white/5" id="main-header">
+  <div class="container mx-auto px-4 h-20 flex items-center justify-between">
+    <!-- Logo -->
+    <a href="/" class="flex items-center gap-2 group shrink-0">
+      <img src={logo.src} alt="y999 Logo" class="h-10 w-auto" />
+      <span class="text-xl font-black italic tracking-tighter text-green-500">y999</span>
+    </a>
+
+    <!-- Navigation - Centered -->
+    <nav class="hidden lg:flex items-center gap-8 absolute left-1/2 -translate-x-1/2">
+      <a href="/" class="text-white hover:text-green-500 transition-colors font-medium text-sm tracking-widest uppercase">Home</a>
+      <a href="/#games" class="text-white hover:text-green-500 transition-colors font-medium text-sm tracking-widest uppercase">Games</a>
+      <a href="/download" class="text-white hover:text-green-500 transition-colors font-medium text-sm tracking-widest uppercase">Download</a>
+      <a href="/contact" class="text-white hover:text-green-500 transition-colors font-medium text-sm tracking-widest uppercase">Contact</a>
+   
+    </nav>
+
+    <!-- Auth Buttons - Right -->
+    <div class="flex items-center gap-4">
+      <a href="/login" class="hidden sm:flex border border-green-500 text-green-500 px-6 py-2 rounded-lg font-bold text-xs tracking-widest uppercase hover:bg-green-500 hover:text-black transition-all">
+        Login
+      </a>
+      <a href="/signup" class="px-6 py-2 bg-green-500 text-black font-bold rounded-lg text-xs tracking-widest uppercase hover:bg-green-400 transition-all shadow-lg shadow-green-500/20">
+        Sign Up Free
+      </a>
+      
+      <!-- Mobile Menu Button -->
+      <button class="lg:hidden text-white p-2" id="mobile-menu-toggle">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div class="lg:hidden hidden bg-slate-950 border-t border-white/5 animate-fade-in" id="mobile-menu">
+    <div class="flex flex-col p-6 gap-4 text-center">
+      <a href="/" class="text-white hover:text-green-500 py-3 border-b border-white/5 uppercase tracking-widest text-xs">Home</a>
+      <a href="/#games" class="text-white hover:text-green-500 py-3 border-b border-white/5 uppercase tracking-widest text-xs">Games</a>
+      <a href="/download" class="text-white hover:text-green-500 py-3 border-b border-white/5 uppercase tracking-widest text-xs">Download</a>
+      <a href="/contact" class="text-white hover:text-green-500 py-3 border-b border-white/5 uppercase tracking-widest text-xs">Contact</a>
+      <a href="/login" class="mt-4 border border-green-500 text-green-500 py-3 rounded-lg uppercase tracking-widest text-xs font-bold">Login</a>
+    </div>
+  </div>
+</header>
+
+<script>
+  const toggle = document.getElementById('mobile-menu-toggle');
+  const menu = document.getElementById('mobile-menu');
+
+  if (toggle && menu) {
+    toggle.addEventListener('click', () => {
+      menu.classList.toggle('hidden');
+    });
+  }
+</script>

@@ -1,0 +1,65 @@
+---
+/**
+ * HowToSchema.astro
+ * Outputs HowTo JSON-LD for the Y999 download guide.
+ * This can unlock step-by-step rich results in Google.
+ */
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to Download and Install Y999 Game APK",
+  "description": "Step-by-step guide to safely download and install the Y999 Game APK on your Android device.",
+  "totalTime": "PT5M",
+  "tool": [
+    { "@type": "HowToTool", "name": "Android Device (5.0+)" },
+    { "@type": "HowToTool", "name": "File Manager App" },
+  ],
+  "step": [
+    {
+      "@type": "HowToStep",
+      "position": 1,
+      "name": "Visit the Official Website",
+      "text": "Head to the official Y999 Game website at y999gameapp.com.pk.",
+      "url": "https://y999gameapp.com.pk/download",
+    },
+    {
+      "@type": "HowToStep",
+      "position": 2,
+      "name": "Click Download Button",
+      "text": "Click the Download APK button and review the app features.",
+      "url": "https://y999gameapp.com.pk/download",
+    },
+    {
+      "@type": "HowToStep",
+      "position": 3,
+      "name": "Enable Unknown Sources",
+      "text": "Go to your Android Settings > Security and enable 'Install from Unknown Sources'.",
+      "url": "https://y999gameapp.com.pk/download",
+    },
+    {
+      "@type": "HowToStep",
+      "position": 4,
+      "name": "Find the APK File",
+      "text": "Open your File Manager and navigate to the Downloads folder to find the Y999 APK.",
+      "url": "https://y999gameapp.com.pk/download",
+    },
+    {
+      "@type": "HowToStep",
+      "position": 5,
+      "name": "Install the APK",
+      "text": "Tap the APK file and follow the on-screen instructions to install Y999 Game.",
+      "url": "https://y999gameapp.com.pk/download",
+    },
+    {
+      "@type": "HowToStep",
+      "position": 6,
+      "name": "Register & Play",
+      "text": "Once installed, open the app, register with your phone number, and start playing.",
+      "url": "https://y999gameapp.com.pk/download",
+    },
+  ],
+};
+---
+
+<script type="application/ld+json" is:inline set:html={JSON.stringify(schema)} />

@@ -1,0 +1,71 @@
+---
+import Layout from '../layouts/Layout.astro';
+import BreadcrumbSchema from '../components/seo/BreadcrumbSchema.astro';
+
+const BASE = "https://y999gameapp.com.pk";
+---
+
+<Layout 
+  title="Disclaimer - Y999 Game" 
+  description="Legal disclaimer and risk warnings for Y999 Game."
+>
+  <Fragment slot="schema">
+    <BreadcrumbSchema items={[
+      { name: "Home", url: `${BASE}/` },
+      { name: "Disclaimer", url: `${BASE}/disclaimer` },
+    ]} />
+  </Fragment>
+
+  <div class="min-h-screen bg-[#101115] pt-32 pb-20 relative overflow-hidden">
+    <!-- Decorative particles -->
+    <div class="absolute inset-0 pointer-events-none z-0" aria-hidden="true" style="background: radial-gradient(circle at center, rgba(34,197,94,0.05), transparent 50%);"></div>
+
+    <div class="container mx-auto px-5 max-w-4xl relative z-10 text-white/80">
+      <div class="mb-12 text-center">
+        <h1 class="text-4xl md:text-5xl font-black text-white mb-4">Legal <span class="text-green-500">Disclaimer</span></h1>
+        <p class="text-white/50">Please read cautiously before using our services.</p>
+      </div>
+
+      <div class="space-y-8 bg-[#1b1c24] border border-white/5 p-8 md:p-12 rounded-2xl shadow-xl prose prose-invert prose-green max-w-none">
+        
+        <div class="p-6 bg-red-500/10 border border-red-500/20 rounded-xl mb-8">
+           <h3 class="text-xl font-bold text-red-500 mb-2 flex items-center gap-2">
+             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+             Risk Warning
+           </h3>
+           <p class="text-white/80 text-sm leading-relaxed">
+             Gaming and betting involve significant risk of financial loss. You should never gamble with money you cannot afford to lose. The platform is intended for entertainment purposes only and should not be viewed as a way to make money or solve financial problems.
+           </p>
+        </div>
+
+        <section>
+          <h2 class="text-2xl font-bold text-white mb-4">No Guarantees</h2>
+          <p class="leading-relaxed mb-4">
+            All the information on this website and within the Y999 Game application is published in good faith and for general information purpose only. Y999 Game does not make any warranties about the completeness, reliability, and accuracy of this information. Any action you take upon the information you find on this website is strictly at your own risk.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="text-2xl font-bold text-white mb-4">Jurisdiction and Legality</h2>
+          <p class="leading-relaxed mb-4">
+            It is solely your responsibility to check the laws regarding online gambling and betting in your specific jurisdiction before using Y999 Game. We do not accept liability if your use of our platform violates local, state, or federal laws. The availability of our website or application does not constitute an offer, solicitation, or invitation to use our services in any jurisdiction where such use is illegal.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="text-2xl font-bold text-white mb-4">Third-Party Links</h2>
+          <p class="leading-relaxed mb-4">
+            From our website, you can visit other websites by following hyperlinks to such external sites. While we strive to provide only quality links to useful and ethical websites, we have no control over the content and nature of these sites. These links to other websites do not imply a recommendation for all the content found on these sites.
+          </p>
+        </section>
+
+        <section>
+          <h2 class="text-2xl font-bold text-white mb-4">Consent</h2>
+          <p class="leading-relaxed mb-4">
+            By using our website or our mobile application, you hereby consent to our disclaimer and agree to its terms.
+          </p>
+        </section>
+      </div>
+    </div>
+  </div>
+</Layout>

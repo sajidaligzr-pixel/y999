@@ -1,0 +1,103 @@
+---
+/**
+ * BreadcrumbSchema.astro
+ * Renders both:
+ *  1. A JSON-LD BreadcrumbList schema for search engines
+ *  2. A visible breadcrumb <nav> for users
+ *
+ * Usage:
+ *   <BreadcrumbSchema items={[
+ *     { name: "Home", url: "https://y999gameapp.com.pk/" },
+ *     { name: "Games", url: "https://y999gameapp.com.pk/games" },
+ *   ]} />
+ */
+
+interface BreadcrumbItem {
+  name: string;
+  url: string;
+}
+
+interface Props {
+  items: BreadcrumbItem[];
+}
+
+const { items } = Astro.props;
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": items.map((item, index) => ({
+    "@type": "ListItem",
+    "position": index + 1,
+    "name": item.name,
+    "item": item.url,
+  })),
+};
+---
+
+<!-- JSON-LD Schema -->
+<script type="application/ld+json" is:inline set:html={JSON.stringify(schema)} />
+
+<!-- Visual Breadcrumb Navigation -->
+<nav aria-label="breadcrumb" class="breadcrumb-nav">
+  <ol class="breadcrumb-list">
+    {items.map((item, index) => {
+      const isLast = index === items.length - 1;
+      return (
+        <li class="breadcrumb-item">
+          {isLast ? (
+            <span class="breadcrumb-current" aria-current="page">{item.name}</span>
+          ) : (
+            <>
+              <a href={item.url} class="breadcrumb-link">{item.name}</a>
+              <span class="breadcrumb-sep" aria-hidden="true">›</span>
+            </>
+          )}
+        </li>
+      );
+    })}
+  </ol>
+</nav>
+
+<style>
+  .breadcrumb-nav {
+    padding: 0.5rem 0 1.25rem;
+  }
+
+  .breadcrumb-list {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.25rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .breadcrumb-item {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    font-size: 0.8125rem;
+  }
+
+  .breadcrumb-link {
+    color: rgba(255, 255, 255, 0.5);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .breadcrumb-link:hover {
+    color: #22c55e;
+  }
+
+  .breadcrumb-sep {
+    color: rgba(255, 255, 255, 0.25);
+    font-size: 0.9rem;
+  }
+
+  .breadcrumb-current {
+    color: #22c55e;
+    font-weight: 500;
+  }
+</style>
