@@ -1,5 +1,6 @@
 ---
 // Description component with feature cards
+import { Image } from 'astro:assets';
 import slotImg from '../assets/categories/Super-Ace.webp';
 import fishingImg from '../assets/categories/Golden-Empire.webp';
 import sportsImg from '../assets/categories/Boxing-King.webp';
@@ -156,9 +157,12 @@ import easypaisaLogo from '../assets/payment/Easypaisa.webp';
           <div class="grid md:grid-cols-2 gap-8 items-center">
             <!-- Image -->
             <div class="relative rounded-2xl overflow-hidden aspect-video bg-gradient-to-br from-purple-500 via-pink-500 to-red-500 order-1">
-              <img 
-                src={cardImg.src} 
+              <Image 
+                src={cardImg} 
                 alt="Card Games" 
+                width={800}
+                quality={60}
+                loading="lazy"
                 class="w-full h-full object-cover"
               />
             </div>
@@ -210,9 +214,12 @@ import easypaisaLogo from '../assets/payment/Easypaisa.webp';
           <div class="grid md:grid-cols-2 gap-8 items-center">
             <!-- Image -->
             <div class="relative rounded-2xl overflow-hidden aspect-video bg-gradient-to-br from-cyan-500 via-blue-500 to-purple-500 order-1 md:order-2">
-              <img 
-                src={arcadeImg.src} 
+              <Image 
+                src={arcadeImg} 
                 alt="Blockchain Games" 
+                width={800}
+                quality={60}
+                loading="lazy"
                 class="w-full h-full object-cover"
               />
             </div>
@@ -264,9 +271,12 @@ import easypaisaLogo from '../assets/payment/Easypaisa.webp';
           <div class="grid md:grid-cols-2 gap-8 items-center">
             <!-- Image -->
             <div class="relative rounded-2xl overflow-hidden aspect-video bg-gradient-to-br from-yellow-500 via-orange-500 to-pink-500 order-1">
-              <img 
-                src={slotImg.src} 
+              <Image 
+                src={slotImg} 
                 alt="Slot Games" 
+                width={800}
+                quality={60}
+                loading="lazy"
                 class="w-full h-full object-cover"
               />
             </div>
@@ -318,9 +328,12 @@ import easypaisaLogo from '../assets/payment/Easypaisa.webp';
           <div class="grid md:grid-cols-2 gap-8 items-center">
             <!-- Image -->
             <div class="relative rounded-2xl overflow-hidden aspect-video bg-gradient-to-br from-amber-500 via-yellow-500 to-orange-500 order-1 md:order-2">
-              <img 
-                src={casinoImg.src} 
+              <Image 
+                src={casinoImg} 
                 alt="Live Poker" 
+                width={800}
+                quality={60}
+                loading="lazy"
                 class="w-full h-full object-cover"
               />
             </div>
@@ -372,9 +385,12 @@ import easypaisaLogo from '../assets/payment/Easypaisa.webp';
           <div class="grid md:grid-cols-2 gap-8 items-center">
             <!-- Image -->
             <div class="relative rounded-2xl overflow-hidden aspect-video bg-gradient-to-br from-red-500 via-orange-500 to-yellow-500 order-1">
-              <img 
-                src={sportsImg.src} 
+              <Image 
+                src={sportsImg} 
                 alt="Sports Betting" 
+                width={800}
+                quality={60}
+                loading="lazy"
                 class="w-full h-full object-cover"
               />
             </div>
@@ -426,9 +442,12 @@ import easypaisaLogo from '../assets/payment/Easypaisa.webp';
           <div class="grid md:grid-cols-2 gap-8 items-center">
             <!-- Image -->
             <div class="relative rounded-2xl overflow-hidden aspect-video bg-gradient-to-br from-blue-500 via-cyan-500 to-teal-500 order-1 md:order-2">
-              <img 
-                src={fishingImg.src} 
+              <Image 
+                src={fishingImg} 
                 alt="Fishing Games" 
+                width={800}
+                quality={60}
+                loading="lazy"
                 class="w-full h-full object-cover"
               />
             </div>
@@ -480,9 +499,12 @@ import easypaisaLogo from '../assets/payment/Easypaisa.webp';
           <div class="grid md:grid-cols-2 gap-8 items-center">
             <!-- Image -->
             <div class="relative rounded-2xl overflow-hidden aspect-video bg-gradient-to-br from-emerald-500 via-green-500 to-teal-500 order-1">
-              <img 
-                src={slotImg.src} 
+              <Image 
+                src={slotImg} 
                 alt="Lottery" 
+                width={800}
+                quality={60}
+                loading="lazy"
                 class="w-full h-full object-cover"
               />
             </div>
@@ -562,7 +584,7 @@ import easypaisaLogo from '../assets/payment/Easypaisa.webp';
       <!-- Game Card 1 -->
       <div class="group relative bg-gradient-to-br from-green-500/10 to-transparent border border-green-500/20 rounded-2xl overflow-hidden hover:border-green-500/60 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-green-500/20">
         <div class="aspect-[3/4] relative overflow-hidden">
-          <img src={superAce.src} alt="Super Ace" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300" />
+          <Image src={superAce} alt="Super Ace" width={300} quality={70} loading="lazy" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300" />
           <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
         </div>
         <div class="absolute bottom-0 left-0 right-0 p-3">
@@ -576,7 +598,7 @@ import easypaisaLogo from '../assets/payment/Easypaisa.webp';
       <!-- Game Card 2 -->
       <div class="group relative bg-gradient-to-br from-green-500/10 to-transparent border border-green-500/20 rounded-2xl overflow-hidden hover:border-green-500/60 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-green-500/20">
         <div class="aspect-[3/4] relative overflow-hidden">
-          <img src={goldenEmpire.src} alt="Golden Empire" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300" />
+          <Image src={goldenEmpire} alt="Golden Empire" width={300} quality={70} loading="lazy" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300" />
           <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
         </div>
         <div class="absolute bottom-0 left-0 right-0 p-3">
@@ -590,7 +612,7 @@ import easypaisaLogo from '../assets/payment/Easypaisa.webp';
       <!-- Game Card 3 -->
       <div class="group relative bg-gradient-to-br from-green-500/10 to-transparent border border-green-500/20 rounded-2xl overflow-hidden hover:border-green-500/60 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-green-500/20">
         <div class="aspect-[3/4] relative overflow-hidden">
-          <img src={moneyComingImg.src} alt="Money Coming" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300" />
+          <Image src={moneyComingImg} alt="Money Coming" width={300} quality={70} loading="lazy" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300" />
           <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
         </div>
         <div class="absolute bottom-0 left-0 right-0 p-3">
@@ -604,7 +626,7 @@ import easypaisaLogo from '../assets/payment/Easypaisa.webp';
       <!-- Game Card 4 -->
       <div class="group relative bg-gradient-to-br from-green-500/10 to-transparent border border-green-500/20 rounded-2xl overflow-hidden hover:border-green-500/60 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-green-500/20">
         <div class="aspect-[3/4] relative overflow-hidden">
-          <img src={boxingKing.src} alt="Boxing King" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300" />
+          <Image src={boxingKing} alt="Boxing King" width={300} quality={70} loading="lazy" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300" />
           <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
         </div>
         <div class="absolute bottom-0 left-0 right-0 p-3">
@@ -618,7 +640,7 @@ import easypaisaLogo from '../assets/payment/Easypaisa.webp';
       <!-- Game Card 5 -->
       <div class="group relative bg-gradient-to-br from-green-500/10 to-transparent border border-green-500/20 rounded-2xl overflow-hidden hover:border-green-500/60 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-green-500/20">
         <div class="aspect-[3/4] relative overflow-hidden">
-          <img src={crazyHunter.src} alt="Crazy Hunter" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300" />
+          <Image src={crazyHunter} alt="Crazy Hunter" width={300} quality={70} loading="lazy" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300" />
           <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
         </div>
         <div class="absolute bottom-0 left-0 right-0 p-3">
@@ -632,7 +654,7 @@ import easypaisaLogo from '../assets/payment/Easypaisa.webp';
       <!-- Game Card 6 -->
       <div class="group relative bg-gradient-to-br from-green-500/10 to-transparent border border-green-500/20 rounded-2xl overflow-hidden hover:border-green-500/60 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-green-500/20">
         <div class="aspect-[3/4] relative overflow-hidden">
-          <img src={fortuneMonkey.src} alt="Fortune Monkey" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300" />
+          <Image src={fortuneMonkey} alt="Fortune Monkey" width={300} quality={70} loading="lazy" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300" />
           <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
         </div>
         <div class="absolute bottom-0 left-0 right-0 p-3">
@@ -647,7 +669,7 @@ import easypaisaLogo from '../assets/payment/Easypaisa.webp';
       <!-- Game Card 7 -->
       <div class="group relative bg-gradient-to-br from-green-500/10 to-transparent border border-green-500/20 rounded-2xl overflow-hidden hover:border-green-500/60 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-green-500/20">
         <div class="aspect-[3/4] relative overflow-hidden">
-          <img src={megaAce.src} alt="Mega Ace" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300" />
+          <Image src={megaAce} alt="Mega Ace" width={300} quality={70} loading="lazy" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300" />
           <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
         </div>
         <div class="absolute bottom-0 left-0 right-0 p-3">
@@ -661,7 +683,7 @@ import easypaisaLogo from '../assets/payment/Easypaisa.webp';
       <!-- Game Card 8 -->
       <div class="group relative bg-gradient-to-br from-green-500/10 to-transparent border border-green-500/20 rounded-2xl overflow-hidden hover:border-green-500/60 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-green-500/20">
         <div class="aspect-[3/4] relative overflow-hidden">
-          <img src={luckyComing.src} alt="Lucky Coming" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300" />
+          <Image src={luckyComing} alt="Lucky Coming" width={300} quality={70} loading="lazy" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300" />
           <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
         </div>
         <div class="absolute bottom-0 left-0 right-0 p-3">
@@ -675,7 +697,7 @@ import easypaisaLogo from '../assets/payment/Easypaisa.webp';
       <!-- Game Card 9 -->
       <div class="group relative bg-gradient-to-br from-green-500/10 to-transparent border border-green-500/20 rounded-2xl overflow-hidden hover:border-green-500/60 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-green-500/20">
         <div class="aspect-[3/4] relative overflow-hidden">
-          <img src={hotChili.src} alt="Hot Chili" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300" />
+          <Image src={hotChili} alt="Hot Chili" width={300} quality={70} loading="lazy" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300" />
           <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
         </div>
         <div class="absolute bottom-0 left-0 right-0 p-3">
@@ -689,7 +711,7 @@ import easypaisaLogo from '../assets/payment/Easypaisa.webp';
       <!-- Game Card 10 -->
       <div class="group relative bg-gradient-to-br from-green-500/10 to-transparent border border-green-500/20 rounded-2xl overflow-hidden hover:border-green-500/60 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-green-500/20">
         <div class="aspect-[3/4] relative overflow-hidden">
-          <img src={romaX.src} alt="Roma X" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300" />
+          <Image src={romaX} alt="Roma X" width={300} quality={70} loading="lazy" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300" />
           <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
         </div>
         <div class="absolute bottom-0 left-0 right-0 p-3">
@@ -703,7 +725,7 @@ import easypaisaLogo from '../assets/payment/Easypaisa.webp';
       <!-- Game Card 11 -->
       <div class="group relative bg-gradient-to-br from-green-500/10 to-transparent border border-green-500/20 rounded-2xl overflow-hidden hover:border-green-500/60 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-green-500/20">
         <div class="aspect-[3/4] relative overflow-hidden">
-          <img src={chargeBuffalo.src} alt="Charge Buffalo" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300" />
+          <Image src={chargeBuffalo} alt="Charge Buffalo" width={300} quality={70} loading="lazy" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300" />
           <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
         </div>
         <div class="absolute bottom-0 left-0 right-0 p-3">
@@ -717,7 +739,7 @@ import easypaisaLogo from '../assets/payment/Easypaisa.webp';
       <!-- Game Card 12 -->
       <div class="group relative bg-gradient-to-br from-green-500/10 to-transparent border border-green-500/20 rounded-2xl overflow-hidden hover:border-green-500/60 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-green-500/20">
         <div class="aspect-[3/4] relative overflow-hidden">
-          <img src={dragonTreasure.src} alt="Dragon Treasure" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300" />
+          <Image src={dragonTreasure} alt="Dragon Treasure" width={300} quality={70} loading="lazy" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300" />
           <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
         </div>
         <div class="absolute bottom-0 left-0 right-0 p-3">
@@ -732,7 +754,7 @@ import easypaisaLogo from '../assets/payment/Easypaisa.webp';
       <!-- Game Card 13 -->
       <div class="group relative bg-gradient-to-br from-green-500/10 to-transparent border border-green-500/20 rounded-2xl overflow-hidden hover:border-green-500/60 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-green-500/20">
         <div class="aspect-[3/4] relative overflow-hidden">
-          <img src={thorII.src} alt="Thor II" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300" />
+          <Image src={thorII} alt="Thor II" width={300} quality={70} loading="lazy" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300" />
           <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
         </div>
         <div class="absolute bottom-0 left-0 right-0 p-3">
@@ -746,7 +768,7 @@ import easypaisaLogo from '../assets/payment/Easypaisa.webp';
       <!-- Game Card 14 -->
       <div class="group relative bg-gradient-to-br from-green-500/10 to-transparent border border-green-500/20 rounded-2xl overflow-hidden hover:border-green-500/60 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-green-500/20">
         <div class="aspect-[3/4] relative overflow-hidden">
-          <img src={zeus.src} alt="Zeus" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300" />
+          <Image src={zeus} alt="Zeus" width={300} quality={70} loading="lazy" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300" />
           <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
         </div>
         <div class="absolute bottom-0 left-0 right-0 p-3">
@@ -760,7 +782,7 @@ import easypaisaLogo from '../assets/payment/Easypaisa.webp';
       <!-- Game Card 15 -->
       <div class="group relative bg-gradient-to-br from-green-500/10 to-transparent border border-green-500/20 rounded-2xl overflow-hidden hover:border-green-500/60 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-green-500/20">
         <div class="aspect-[3/4] relative overflow-hidden">
-          <img src={samba.src} alt="Samba" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300" />
+          <Image src={samba} alt="Samba" width={300} quality={70} loading="lazy" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300" />
           <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
         </div>
         <div class="absolute bottom-0 left-0 right-0 p-3">
@@ -774,7 +796,7 @@ import easypaisaLogo from '../assets/payment/Easypaisa.webp';
       <!-- Game Card 16 -->
       <div class="group relative bg-gradient-to-br from-green-500/10 to-transparent border border-green-500/20 rounded-2xl overflow-hidden hover:border-green-500/60 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-green-500/20">
         <div class="aspect-[3/4] relative overflow-hidden">
-          <img src={wildRacer.src} alt="Wild Racer" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300" />
+          <Image src={wildRacer} alt="Wild Racer" width={300} quality={70} loading="lazy" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300" />
           <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
         </div>
         <div class="absolute bottom-0 left-0 right-0 p-3">
@@ -788,7 +810,7 @@ import easypaisaLogo from '../assets/payment/Easypaisa.webp';
       <!-- Game Card 17 -->
       <div class="group relative bg-gradient-to-br from-green-500/10 to-transparent border border-green-500/20 rounded-2xl overflow-hidden hover:border-green-500/60 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-green-500/20">
         <div class="aspect-[3/4] relative overflow-hidden">
-          <img src={medusa.src} alt="Medusa" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300" />
+          <Image src={medusa} alt="Medusa" width={300} quality={70} loading="lazy" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300" />
           <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
         </div>
         <div class="absolute bottom-0 left-0 right-0 p-3">
@@ -802,7 +824,7 @@ import easypaisaLogo from '../assets/payment/Easypaisa.webp';
       <!-- Game Card 18 -->
       <div class="group relative bg-gradient-to-br from-green-500/10 to-transparent border border-green-500/20 rounded-2xl overflow-hidden hover:border-green-500/60 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-green-500/20">
         <div class="aspect-[3/4] relative overflow-hidden">
-          <img src={nightCity.src} alt="Night City" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300" />
+          <Image src={nightCity} alt="Night City" width={300} quality={70} loading="lazy" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300" />
           <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
         </div>
         <div class="absolute bottom-0 left-0 right-0 p-3">
