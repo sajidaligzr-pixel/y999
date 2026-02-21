@@ -8,9 +8,10 @@ const gameImages = import.meta.glob('../assets/games/*.{webp,png,jpg,jpeg}', { e
 const hotGames = ['AK47', 'Andar-Bahar', 'Blackjack', 'Rummy', 'TeenPatti'];
 
 const games = Object.keys(gameImages).map((path) => {
-  const fileName = path.split('/').pop().split('.')[0];
+  const fileName = path.split('/').pop()?.split('.')[0] ?? '';
   let title = fileName.replace(/-/g, ' ');
-  const imgSrc = gameImages[path].default.src;
+  const module = gameImages[path] as { default: { src: string } };
+  const imgSrc = module.default.src;
   
   // Try to assign a logical category
   let category = 'Other';
@@ -36,6 +37,7 @@ const BASE = "https://y999gameapp.com.pk";
 <Layout 
   title="Discover Amazing Games - Y999 | 500+ Casino, Card & Slot Games" 
   description="Explore 500+ premium casino games on Y999. Play top slots, card games (Teen Patti, Rummy, Blackjack), fishing games, and live casino from JILI, PG Soft, and more. Free to download."
+  keywords="y999 games, y999 casino games, y999 slots, y999 card games, teen patti online, rummy online, blackjack online, fishing games, JILI games"
 >
   <Fragment slot="schema">
     <BreadcrumbSchema items={[
@@ -90,9 +92,39 @@ const BASE = "https://y999gameapp.com.pk";
         <p class="text-white/50 text-sm">Showing <span id="gameCount" class="text-green-500 font-bold">{games.length}</span> games</p>
       </div>
 
-      <!-- Games Grid -->
+      <!-- Games Grid — SSR-rendered for SEO, JS enhances for filtering/pagination -->
       <div id="gamesGrid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 mb-12 min-h-[400px]">
-        <!-- Games will be injected here via JS -->
+        <!-- Server-side rendered initial game cards (crawlable by Google) -->
+        {games.slice(0, 18).map((game) => (
+          <a href={`/games/${game.id}`} class="group block relative rounded-xl overflow-hidden shadow-lg transition-transform hover:-translate-y-1"
+             data-title={game.title} data-category={game.category}>
+            {game.isHot && (
+              <div class="absolute top-2 left-2 z-20 bg-linear-to-r from-[#FF6B00] to-[#FF2D00] text-white text-[10px] font-bold px-2 py-0.5 rounded-full flex items-center gap-1 shadow">
+                <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12 2c0 0-3.5 4-3.5 8 0 4.5 7 5 7 2 0-3 0-5-3.5-10z"/></svg>
+                HOT
+              </div>
+            )}
+            <div class="aspect-4/5 relative overflow-hidden">
+              <img
+                src={game.imgSrc}
+                alt={`${game.title} - Casino game on Y999`}
+                width="200"
+                height="250"
+                class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                loading="lazy"
+              />
+              <div class="absolute inset-0 bg-linear-to-t from-black/80 via-black/30 to-transparent"></div>
+              <div class="absolute bottom-0 left-0 right-0 p-4 pb-3 flex flex-col items-center justify-end text-center">
+                <h3 class="text-white font-bold text-lg md:text-xl leading-tight mb-1 truncate w-full" style="text-shadow: 0px 2px 4px rgba(0,0,0,0.5);">{game.title}</h3>
+                <div class="flex items-center gap-1 opacity-90">
+                  <span class="text-white text-[10px] font-black tracking-widest uppercase flex items-center justify-center gap-1 opacity-80">
+                    <span class="font-bold italic">JILI</span> {game.provider}
+                  </span>
+                </div>
+              </div>
+            </div>
+          </a>
+        ))}
       </div>
 
       <!-- Pagination Default Design from Image -->

@@ -1,0 +1,26 @@
+{
+  "name": "y999 Game",
+  "short_name": "y999",
+  "description": "Download the official y999 Game App for Android. Experience the best casino games, sports betting, and slot machines in Pakistan.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#101115",
+  "theme_color": "#22c55e",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "48x48",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["games", "entertainment"],
+  "lang": "en",
+  "dir": "ltr"
+}

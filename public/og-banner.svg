@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0d1117;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#101115;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="greenGlow" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#22c55e;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#16a34a;stop-opacity:1" />
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="8" result="coloredBlur"/>
+      <feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <radialGradient id="spotlight" cx="30%" cy="50%" r="60%">
+      <stop offset="0%" style="stop-color:#22c55e;stop-opacity:0.12" />
+      <stop offset="100%" style="stop-color:#000000;stop-opacity:0" />
+    </radialGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect width="1200" height="630" fill="url(#spotlight)"/>
+
+  <!-- Bottom green accent bar -->
+  <rect x="0" y="610" width="1200" height="20" fill="url(#greenGlow)"/>
+
+  <!-- Left green accent line -->
+  <rect x="0" y="0" width="6" height="630" fill="url(#greenGlow)"/>
+
+  <!-- Decorative circles (right side) -->
+  <circle cx="900" cy="315" r="280" fill="none" stroke="#22c55e" stroke-width="1" opacity="0.08"/>
+  <circle cx="900" cy="315" r="200" fill="none" stroke="#22c55e" stroke-width="1" opacity="0.10"/>
+  <circle cx="900" cy="315" r="120" fill="none" stroke="#22c55e" stroke-width="1" opacity="0.12"/>
+
+  <!-- Grid pattern background (subtle) -->
+  <pattern id="grid" width="60" height="60" patternUnits="userSpaceOnUse">
+    <path d="M 60 0 L 0 0 0 60" fill="none" stroke="#22c55e" stroke-width="0.3" opacity="0.15"/>
+  </pattern>
+  <rect x="600" y="0" width="600" height="630" fill="url(#grid)"/>
+
+  <!-- Casino card / diamond icons (decorative) -->
+  <!-- Spade icon -->
+  <text x="870" y="240" font-size="120" fill="#22c55e" opacity="0.15" text-anchor="middle" font-family="serif">♠</text>
+  <!-- Diamond icon -->
+  <text x="1020" y="380" font-size="90" fill="#22c55e" opacity="0.12" text-anchor="middle" font-family="serif">♦</text>
+  <!-- Club icon -->
+  <text x="760" y="420" font-size="80" fill="#22c55e" opacity="0.10" text-anchor="middle" font-family="serif">♣</text>
+
+  <!-- Brand name: y999 -->
+  <text x="80" y="270" font-size="128" font-weight="900" font-family="Arial Black, Arial, sans-serif" fill="url(#greenGlow)" filter="url(#glow)" letter-spacing="-4">y999</text>
+
+  <!-- Tagline -->
+  <text x="80" y="340" font-size="34" font-weight="400" font-family="Arial, sans-serif" fill="#ffffff" opacity="0.85" letter-spacing="2">GAME</text>
+
+  <!-- Divider line -->
+  <rect x="80" y="365" width="420" height="3" fill="url(#greenGlow)" rx="2"/>
+
+  <!-- Sub-tagline -->
+  <text x="80" y="420" font-size="28" font-weight="700" font-family="Arial, sans-serif" fill="#ffffff" opacity="0.70">500+ Casino &amp; Slot Games</text>
+
+  <!-- Feature pills -->
+  <!-- Pill 1 -->
+  <rect x="80" y="460" width="165" height="42" rx="21" fill="#22c55e" opacity="0.15" stroke="#22c55e" stroke-width="1.5"/>
+  <text x="163" y="487" font-size="15" font-weight="700" font-family="Arial, sans-serif" fill="#22c55e" text-anchor="middle" letter-spacing="1">🎰 SLOTS</text>
+
+  <!-- Pill 2 -->
+  <rect x="260" y="460" width="165" height="42" rx="21" fill="#22c55e" opacity="0.15" stroke="#22c55e" stroke-width="1.5"/>
+  <text x="342" y="487" font-size="15" font-weight="700" font-family="Arial, sans-serif" fill="#22c55e" text-anchor="middle" letter-spacing="1">🃏 CARDS</text>
+
+  <!-- Pill 3 -->
+  <rect x="440" y="460" width="165" height="42" rx="21" fill="#22c55e" opacity="0.15" stroke="#22c55e" stroke-width="1.5"/>
+  <text x="522" y="487" font-size="15" font-weight="700" font-family="Arial, sans-serif" fill="#22c55e" text-anchor="middle" letter-spacing="1">🎣 FISHING</text>
+
+  <!-- URL / domain watermark -->
+  <text x="80" y="585" font-size="20" font-family="Arial, sans-serif" fill="#ffffff" opacity="0.35" letter-spacing="2">y999gameapp.com.pk</text>
+
+  <!-- "Free Download" badge -->
+  <rect x="950" y="520" width="195" height="52" rx="26" fill="url(#greenGlow)"/>
+  <text x="1047" y="553" font-size="18" font-weight="900" font-family="Arial Black, Arial, sans-serif" fill="#000000" text-anchor="middle" letter-spacing="1">FREE DOWNLOAD</text>
+</svg>
