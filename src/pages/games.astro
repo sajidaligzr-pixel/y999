@@ -32,6 +32,18 @@ const games = Object.keys(gameImages).map((path) => {
 });
 
 const BASE = "https://y999gameapp.com.pk";
+
+const itemListSchema = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "itemListElement": games.map((game: any, index: number) => ({
+    "@type": "ListItem",
+    "position": index + 1,
+    "name": game.title,
+    "url": `${BASE}/games#${game.id}`,
+    "image": new URL(game.imgSrc, BASE).href
+  }))
+};
 ---
 
 <Layout 
@@ -44,6 +56,7 @@ const BASE = "https://y999gameapp.com.pk";
       { name: "Home", url: `${BASE}/` },
       { name: "Games", url: `${BASE}/games` },
     ]} />
+    <script type="application/ld+json" is:inline set:html={JSON.stringify(itemListSchema)} />
   </Fragment>
 
   <div class="min-h-screen bg-[#101115] pt-32 pb-20 relative overflow-hidden">
@@ -96,7 +109,7 @@ const BASE = "https://y999gameapp.com.pk";
       <div id="gamesGrid" class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 mb-12 min-h-[400px]">
         <!-- Server-side rendered initial game cards (crawlable by Google) -->
         {games.slice(0, 18).map((game) => (
-          <a href={`/games/${game.id}`} class="group block relative rounded-xl overflow-hidden shadow-lg transition-transform hover:-translate-y-1"
+          <div class="group block relative rounded-xl overflow-hidden shadow-lg transition-transform hover:-translate-y-1"
              data-title={game.title} data-category={game.category}>
             {game.isHot && (
               <div class="absolute top-2 left-2 z-20 bg-linear-to-r from-[#FF6B00] to-[#FF2D00] text-white text-[10px] font-bold px-2 py-0.5 rounded-full flex items-center gap-1 shadow">
@@ -123,7 +136,7 @@ const BASE = "https://y999gameapp.com.pk";
                 </div>
               </div>
             </div>
-          </a>
+          </div>
         ))}
       </div>
 
@@ -186,23 +199,16 @@ const BASE = "https://y999gameapp.com.pk";
           `;
         } else {
           gamesGrid.innerHTML = pageGames.map(game => `
-            <a href="/play/${game.id}" class="group block relative rounded-xl overflow-hidden shadow-lg transition-transform hover:-translate-y-1">
+            <div href="/play/${game.id}" class="group block relative rounded-xl overflow-hidden shadow-lg transition-transform hover:-translate-y-1">
               ${game.isHot ? '<div class="absolute top-2 left-2 z-20 bg-gradient-to-r from-[#FF6B00] to-[#FF2D00] text-white text-[10px] font-bold px-2 py-0.5 rounded-full flex items-center gap-1 shadow"><svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12 2c0 0-3.5 4-3.5 8 0 4.5 7 5 7 2 0-3 0-5-3.5-10z"/></svg>HOT</div>' : ''}
               
               <div class="aspect-[4/5] relative overflow-hidden">
                 <img src="${game.imgSrc}" alt="${game.title}" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" loading="lazy" />
                 <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent"></div>
                 
-                <div class="absolute bottom-0 left-0 right-0 p-4 pb-3 flex flex-col items-center justify-end text-center">
-                  <h3 class="text-white font-bold text-lg md:text-xl leading-tight mb-1 truncate w-full" style="text-shadow: 0px 2px 4px rgba(0,0,0,0.5);">${game.title}</h3>
-                  <div class="flex items-center gap-1 opacity-90">
-                    <span class="text-white text-[10px] font-black tracking-widest uppercase flex items-center justify-center gap-1 opacity-80">
-                      <span class="font-bold italic">JILI</span> ${game.provider}
-                    </span>
-                  </div>
-                </div>
+             
               </div>
-            </a>
+            </div>
           `).join('');
         }
 
