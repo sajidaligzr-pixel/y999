@@ -38,7 +38,7 @@ const contactPageSchema = {
         <h1 class="text-4xl md:text-5xl lg:text-6xl font-black text-white mb-6 tracking-tight">
           Contact <span class="text-green-500">Support</span>
         </h1>
-        <p class="text-lg text-white/60 max-w-2xl mx-auto leading-relaxed">
+        <p class="text-lg text-white max-w-2xl mx-auto leading-relaxed">
           Need help? Our customer support team is available 24/7. Fill out the form below or reach out to us directly through our support channels.
         </p>
       </div>
@@ -56,20 +56,20 @@ const contactPageSchema = {
               <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <!-- Name -->
                 <div class="space-y-2">
-                  <label for="name" class="block text-sm font-medium text-white/70">Your Name *</label>
+                  <label for="name" class="block text-sm font-medium text-white">Your Name *</label>
                   <input type="text" id="name" name="name" required class="w-full bg-black/50 border border-white/10 rounded-xl px-4 py-3 text-white placeholder:text-white/30 focus:outline-none focus:border-green-500 focus:ring-1 focus:ring-green-500 transition-all" placeholder="John Doe">
                 </div>
                 
                 <!-- Email -->
                 <div class="space-y-2">
-                  <label for="email" class="block text-sm font-medium text-white/70">Email Address *</label>
+                  <label for="email" class="block text-sm font-medium text-white">Email Address *</label>
                   <input type="email" id="email" name="email" required class="w-full bg-black/50 border border-white/10 rounded-xl px-4 py-3 text-white placeholder:text-white/30 focus:outline-none focus:border-green-500 focus:ring-1 focus:ring-green-500 transition-all" placeholder="john@example.com">
                 </div>
               </div>
               
               <!-- Subject -->
               <div class="space-y-2">
-                <label for="subject" class="block text-sm font-medium text-white/70">Subject *</label>
+                <label for="subject" class="block text-sm font-medium text-white">Subject *</label>
                 <select id="subject" name="subject" required class="w-full bg-black/50 border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-green-500 focus:ring-1 focus:ring-green-500 transition-all appearance-none cursor-pointer">
                   <option value="general" class="bg-[#1b1c24]">General Inquiry</option>
                   <option value="account" class="bg-[#1b1c24]">Account & Login Issues</option>
@@ -81,7 +81,7 @@ const contactPageSchema = {
 
               <!-- Message -->
               <div class="space-y-2">
-                <label for="message" class="block text-sm font-medium text-white/70">Your Message *</label>
+                <label for="message" class="block text-sm font-medium text-white">Your Message *</label>
                 <textarea id="message" name="message" rows="5" required class="w-full bg-black/50 border border-white/10 rounded-xl px-4 py-3 text-white placeholder:text-white/30 focus:outline-none focus:border-green-500 focus:ring-1 focus:ring-green-500 transition-all resize-none" placeholder="How can we help you today?"></textarea>
               </div>
 

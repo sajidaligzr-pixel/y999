@@ -65,7 +65,7 @@ const itemListSchema = {
       <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-green-500 mb-4 tracking-tight">
         Discover Amazing Games
       </h1>
-      <p class="text-white/60 text-lg">
+      <p class="text-white text-lg">
         Explore 500+ premium games from top providers
       </p>
     </div>
@@ -91,18 +91,18 @@ const itemListSchema = {
         <!-- Filter Pills -->
         <div class="flex flex-wrap gap-2 justify-center" id="categoryFilters">
           <button class="filter-btn active px-6 py-2.5 rounded-full bg-green-500 text-black font-semibold text-sm transition-all hover:bg-green-400" data-category="All Games">All Games</button>
-          <button class="filter-btn px-6 py-2 rounded-full bg-[#1b1c24] text-white/70 border border-white/5 font-semibold text-sm transition-all hover:bg-white/10 hover:text-white" data-category="Slots">Slots</button>
-          <button class="filter-btn px-6 py-2 rounded-full bg-[#1b1c24] text-white/70 border border-white/5 font-semibold text-sm transition-all hover:bg-white/10 hover:text-white" data-category="Card Games">Card Games</button>
-          <button class="filter-btn px-6 py-2 rounded-full bg-[#1b1c24] text-white/70 border border-white/5 font-semibold text-sm transition-all hover:bg-white/10 hover:text-white" data-category="Fishing">Fishing</button>
-          <button class="filter-btn px-6 py-2 rounded-full bg-[#1b1c24] text-white/70 border border-white/5 font-semibold text-sm transition-all hover:bg-white/10 hover:text-white" data-category="Live Casino">Live Casino</button>
-          <button class="filter-btn px-6 py-2 rounded-full bg-[#1b1c24] text-white/70 border border-white/5 font-semibold text-sm transition-all hover:bg-white/10 hover:text-white" data-category="Sports">Sports</button>
-          <button class="filter-btn px-6 py-2 rounded-full bg-[#1b1c24] text-white/70 border border-white/5 font-semibold text-sm transition-all hover:bg-white/10 hover:text-white" data-category="Other">Other</button>
+          <button class="filter-btn px-6 py-2 rounded-full bg-[#1b1c24] text-white border border-white/5 font-semibold text-sm transition-all hover:bg-white/10 hover:text-white" data-category="Slots">Slots</button>
+          <button class="filter-btn px-6 py-2 rounded-full bg-[#1b1c24] text-white border border-white/5 font-semibold text-sm transition-all hover:bg-white/10 hover:text-white" data-category="Card Games">Card Games</button>
+          <button class="filter-btn px-6 py-2 rounded-full bg-[#1b1c24] text-white border border-white/5 font-semibold text-sm transition-all hover:bg-white/10 hover:text-white" data-category="Fishing">Fishing</button>
+          <button class="filter-btn px-6 py-2 rounded-full bg-[#1b1c24] text-white border border-white/5 font-semibold text-sm transition-all hover:bg-white/10 hover:text-white" data-category="Live Casino">Live Casino</button>
+          <button class="filter-btn px-6 py-2 rounded-full bg-[#1b1c24] text-white border border-white/5 font-semibold text-sm transition-all hover:bg-white/10 hover:text-white" data-category="Sports">Sports</button>
+          <button class="filter-btn px-6 py-2 rounded-full bg-[#1b1c24] text-white border border-white/5 font-semibold text-sm transition-all hover:bg-white/10 hover:text-white" data-category="Other">Other</button>
         </div>
       </div>
 
       <!-- Counter -->
       <div class="text-center mb-8">
-        <p class="text-white/50 text-sm">Showing <span id="gameCount" class="text-green-500 font-bold">{games.length}</span> games</p>
+        <p class="text-white text-sm">Showing <span id="gameCount" class="text-green-500 font-bold">{games.length}</span> games</p>
       </div>
 
       <!-- Games Grid — SSR-rendered for SEO, JS enhances for filtering/pagination -->
@@ -225,7 +225,7 @@ const itemListSchema = {
         let html = '';
         
         // Prev button
-        html += `<button class="paginate-btn px-4 py-2 rounded-lg ${state.page === 1 ? 'bg-[#1b1c24] text-white/30 cursor-not-allowed' : 'bg-[#1b1c24] text-white/70 hover:bg-[#252733] hover:text-white border border-white/5 transition-all font-medium text-sm'}" data-page="${state.page - 1}" ${state.page === 1 ? 'disabled' : ''}>← Prev</button>`;
+        html += `<button class="paginate-btn px-4 py-2 rounded-lg ${state.page === 1 ? 'bg-[#1b1c24] text-white/30 cursor-not-allowed' : 'bg-[#1b1c24] text-white hover:bg-[#252733] hover:text-white border border-white/5 transition-all font-medium text-sm'}" data-page="${state.page - 1}" ${state.page === 1 ? 'disabled' : ''}>← Prev</button>`;
 
         // Page numbers
         for(let i = 1; i <= totalPages; i++) {
@@ -234,17 +234,17 @@ const itemListSchema = {
             i === totalPages || 
             (i >= state.page - 1 && i <= state.page + 1)
           ) {
-            html += `<button class="paginate-btn w-10 h-10 rounded-lg flex items-center justify-center transition-all font-medium text-sm ${i === state.page ? 'bg-green-500 text-black border-transparent' : 'bg-[#1b1c24] border border-white/5 text-white/70 hover:bg-[#252733] hover:text-white'}" data-page="${i}">${i}</button>`;
+            html += `<button class="paginate-btn w-10 h-10 rounded-lg flex items-center justify-center transition-all font-medium text-sm ${i === state.page ? 'bg-green-500 text-black border-transparent' : 'bg-[#1b1c24] border border-white/5 text-white hover:bg-[#252733] hover:text-white'}" data-page="${i}">${i}</button>`;
           } else if (
             i === state.page - 2 || 
             i === state.page + 2
           ) {
-            html += `<span class="w-10 h-10 flex items-center justify-center text-white/50 text-sm">...</span>`;
+            html += `<span class="w-10 h-10 flex items-center justify-center text-white text-sm">...</span>`;
           }
         }
 
         // Next button
-        html += `<button class="paginate-btn px-4 py-2 rounded-lg ${state.page === totalPages ? 'bg-[#1b1c24] text-white/30 cursor-not-allowed' : 'bg-[#1b1c24] text-white/70 hover:bg-[#252733] hover:text-white border border-white/5 transition-all font-medium text-sm'}" data-page="${state.page + 1}" ${state.page === totalPages ? 'disabled' : ''}>Next →</button>`;
+        html += `<button class="paginate-btn px-4 py-2 rounded-lg ${state.page === totalPages ? 'bg-[#1b1c24] text-white/30 cursor-not-allowed' : 'bg-[#1b1c24] text-white hover:bg-[#252733] hover:text-white border border-white/5 transition-all font-medium text-sm'}" data-page="${state.page + 1}" ${state.page === totalPages ? 'disabled' : ''}>Next →</button>`;
 
         paginationContainer.innerHTML = html;
 
@@ -274,10 +274,10 @@ const itemListSchema = {
           // Update UI
           filterBtns.forEach(b => {
             b.classList.remove("bg-green-500", "text-black");
-            b.classList.add("bg-white/5", "text-white/70");
+            b.classList.add("bg-white/5", "text-white");
           });
           
-          e.currentTarget.classList.remove("bg-white/5", "text-white/70");
+          e.currentTarget.classList.remove("bg-white/5", "text-white");
           e.currentTarget.classList.add("bg-green-500", "text-black");
 
           // Update State
